@@ -4,5 +4,5 @@
             printf "%s,", $i
         }
     }
-    print $29
+    print $30
 } 
