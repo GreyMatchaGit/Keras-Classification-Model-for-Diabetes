@@ -195,7 +195,10 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-tab_patient, tab_doctor = st.tabs(["Patient Screening", "Clinical Dashboard"])
+tab_dataset, tab_patient, tab_doctor = st.tabs(["Dataset Overview", "Patient Dashboard", "Clinic Dashboard"])
+
+with tab_dataset:
+    pass
 
 with tab_patient:
     if not assets["patient"]["status"]:
