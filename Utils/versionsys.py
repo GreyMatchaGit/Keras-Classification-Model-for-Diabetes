@@ -19,19 +19,23 @@ def save_model(model: Model, model_name: str, save_path: Path, version_increment
 
     save_path.mkdir(parents=True, exist_ok=True)
 
-    existing_models = ["".join(str(f_model).split(".")[:-1]) for f_model in save_path.iterdir() if f_model.suffix == file_type]
+    existing_models = [".".join(str(f_model).split(".")[:-1]) for f_model in save_path.iterdir() if f_model.suffix == file_type]
 
     highest_version = "1.0.0"
     final_version = highest_version
 
     # Get the highest version
     if len(existing_models) != 0:
+        print("Existing models detected.")
         for f_model in existing_models:
-            current_version = str(f_model).split("_v")[-1]
+            current_version = str(f_model).split("_v")
             # Model files that don't follow the format are skipped
             if len(current_version) != 2:
                 continue
-            highest_version = helper_max_version(current_version, highest_version)
+            print(current_version)
+            print(f"Comparing {current_version[-1]} with current highest of {highest_version}")
+            highest_version = helper_max_version(current_version[-1], highest_version)
+            print(f"Highest version is now {highest_version}")
 
         # Increment version
         versions = highest_version.split('.')
