@@ -20,6 +20,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 MODEL_DIR = os.path.join(PROJECT_ROOT, "Models")
 DATA_PATH = os.path.join(PROJECT_ROOT, "Diabetes Dataset", "Diabetes_and_LifeStyle_Dataset.csv")
+DEBUG_MODE = False
 
 # 3. MODEL DESCRIPTIONS (Add notes for specific versions)
 MODEL_META = {
@@ -64,7 +65,7 @@ def get_available_versions(base_dir, model_name):
     return versions
 
 # 5. SIDEBAR CONFIGURATION
-st.sidebar.header("System Configuration")
+st.sidebar.header("Model Configuration")
 
 # Format function for dropdown
 def format_func(option, mode):
@@ -82,7 +83,7 @@ if not pat_versions:
     selected_pat_ver = None
 else:
     selected_pat_ver = st.sidebar.selectbox(
-        "Patient Model", 
+        "Patient Side Model", 
         pat_versions, 
         format_func=lambda x: format_func(x, "patient")
     )
@@ -95,18 +96,19 @@ if not doc_versions:
     selected_doc_ver = None
 else:
     selected_doc_ver = st.sidebar.selectbox(
-        "Doctor Model", 
+        "Clinic Side Model", 
         doc_versions,
         format_func=lambda x: format_func(x, "doctor")
     )
 
 # Debug Expander (To verify paths)
-with st.sidebar.expander("Debug Paths"):
-    st.write(f"**Root:** `{MODEL_DIR}`")
-    st.write(f"**Patient Folder:** `{pat_folder_name}` found? {os.path.exists(os.path.join(MODEL_DIR, pat_folder_name))}")
-    st.write(f"**Doctor Folder:** `{doc_folder_name}` found? {os.path.exists(os.path.join(MODEL_DIR, doc_folder_name))}")
+if DEBUG_MODE:
+    with st.sidebar.expander("Debug Paths"):
+        st.write(f"**Root:** `{MODEL_DIR}`")
+        st.write(f"**Patient Folder:** `{pat_folder_name}` found? {os.path.exists(os.path.join(MODEL_DIR, pat_folder_name))}")
+        st.write(f"**Doctor Folder:** `{doc_folder_name}` found? {os.path.exists(os.path.join(MODEL_DIR, doc_folder_name))}")
 
-st.sidebar.divider()
+# st.sidebar.divider()
 
 # 6. LOAD ASSETS
 @st.cache_resource(show_spinner="Loading Models...")
