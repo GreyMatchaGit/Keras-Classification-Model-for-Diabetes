@@ -19,7 +19,7 @@ def save_model(model: Model, model_name: str, save_path: Path, version_increment
 
     save_path.mkdir(parents=True, exist_ok=True)
 
-    existing_models = [".".join(str(f_model).split(".")[:-1]) for f_model in save_path.iterdir() if f_model.suffix == file_type]
+    existing_models = ["".join(str(f_model).split(".")[:-1]) for f_model in save_path.iterdir() if f_model.suffix == file_type]
 
     highest_version = "1.0.0"
     final_version = highest_version
