@@ -190,8 +190,8 @@ if selected_pat_ver and selected_doc_ver:
 st.markdown("""
 <style>
     .stTabs [data-baseweb="tab-list"] { gap: 24px; }
-    .stTabs [data-baseweb="tab"] { height: 50px; background-color: #f0f2f6; border-radius: 4px 4px 0px 0px; padding-top:10px;}
-    .stTabs [aria-selected="true"] { background-color: #ffffff; border-top: 2px solid #ff4b4b; }
+    .stTabs [data-baseweb="tab"] { padding-left: 20px; padding-right: 20px; height: 40px; background-color: #f0f2f6; border-radius: 4px 4px 0px 0px; padding-top:10px;}
+    .stTabs [aria-selected="true"] { background-color: #ffffff; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -203,7 +203,7 @@ with tab_patient:
     else:
         c_head, c_btn = st.columns([3, 1])
         c_head.info("**Screening Mode:** Lifestyle data only.")
-        if c_btn.button("Randomize Patient", key="rand_pat", use_container_width=True):
+        if c_btn.button("Randomize Patient", key="rand_pat", width="stretch"):
             randomize("patient")
             st.rerun()
 
