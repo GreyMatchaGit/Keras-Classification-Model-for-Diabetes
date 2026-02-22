@@ -28,9 +28,9 @@ MODEL_META = {
         "v1.0.1": "Optimized model",
     },
     "doctor": {
-        "v1.0.0": "Initial baseline",
-        "v1.0.1": "10 rows x 5 nodes hidden layers, better performance",
-        "v1.0.2": "5 ka 10 layers, more regularization",
+        "v1.0.0": "50 x 1 layer",
+        "v1.0.1": "10 x 5 layers",
+        "v1.0.2": "5 x 10 layers",
     }
 }
 
