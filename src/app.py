@@ -29,7 +29,7 @@ MODEL_META = {
     },
     "doctor": {
         "v1.0.0": "Initial baseline",
-        "v1.0.1": "10 ka 5 layers, better performance",
+        "v1.0.1": "10 rows x 5 nodes hidden layers, better performance",
         "v1.0.2": "5 ka 10 layers, more regularization",
     }
 }
