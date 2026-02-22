@@ -357,7 +357,7 @@ with tab_doctor:
                     'systolic_bp': [d_sys], 'diastolic_bp': [d_dia],
                     'glucose_fasting': [d_gluc_f], 'glucose_postprandial': [d_gluc_p],
                     'hba1c': [d_hba1c], 'insulin_level': [d_ins],
-                    'cholesterol_total': [d_chol], 'diabetes_risk_score': [d_risk],
+                    'cholesterol_total': [d_chol],
                     'family_history_diabetes': [fam_v],
                     'hypertension_history': [hyp_v],
                     'cardiovascular_history': [card_v],
