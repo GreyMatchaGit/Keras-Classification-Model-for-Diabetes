@@ -41,20 +41,24 @@ def save_model(model: Model, model_name: str, save_path: Path, version_increment
 
         if version_increment_type == "major":
             major += 1
+            minor = 0
+            revisions = 0
         elif version_increment_type == "minor":
             minor += 1
+            revisions = 0
         else:
             revisions += 1
 
         final_version = f"{major}.{minor}.{revisions}"
+        print(f"Creating {model_name}v{final_version}.")
+    else:
+        print(f"No existing model exists. Creating {model_name}v{final_version}.")
 
     model_full_name = f"{model_name}_v{final_version}"
     
     final_save_path = f"{str(save_path)}{os.sep}{model_full_name}{file_type}"
 
     model.save(final_save_path)
-
-    return True
 
 def helper_max_version(version_a: str, version_b: str):
     v_a = version_a.split(".")
