@@ -201,8 +201,8 @@ with tab_dataset:
     st.header("Health & Lifestyle Data for Diabetes Prediction")
     dataset = pd.read_csv(DATA_PATH)
     st.success("**About Dataset:** Provides patient health data, which integrates multiple health dimensions of their demographic, lifestyle, and clinical information to enable robust data-driven insights for diabetes progression and prevention.")
-    st.link_button("📊 Link to Kaggle Dataset","https://www.kaggle.com/datasets/alamshihab075/health-and-lifestyle-data-for-diabetes-prediction")
     st.dataframe(dataset)
+    st.link_button("📊 Link to Kaggle Dataset","https://www.kaggle.com/datasets/alamshihab075/health-and-lifestyle-data-for-diabetes-prediction")
 
 with tab_patient:
     if not assets["patient"]["status"]:
