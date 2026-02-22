@@ -5,17 +5,17 @@ from tensorflow.keras import Model
 # @Params 
 #   model_name: The name for your model
 #   version_increment_type: "major", "minor", "revision"
-#   save_path: The path where you want to save your model
+#   save_path: Path where you want to save your model
 # output creates a directory with the model_name inside the save_path,
 # then creates the latest version inside that created directory.
 #
 # format: model_name_vMajor.Minor.Revisions.file_type
-def save_model(model: Model, model_name: str, version_increment_type: str, save_path: str, file_type: str = '.h5'):
+def save_model(model: Model, model_name: str, save_path: Path, version_increment_type: str = 'revision', file_type: str = '.h5'):
     if version_increment_type != "major" and version_increment_type != "minor" and version_increment_type != "revision":
         print(f"version_increment_type must be either major or minor or revision not \"{version_increment_type}\".")
         return
 
-    save_path = Path(save_path + os.sep + model_name)
+    save_path = Path(save_path.absolute() + os.sep + model_name)
 
     save_path.mkdir(parents=True, exist_ok=True)
 
