@@ -198,7 +198,8 @@ st.markdown("""
 tab_dataset, tab_patient, tab_doctor = st.tabs(["Dataset Overview", "Patient Dashboard", "Clinic Dashboard"])
 
 with tab_dataset:
-    pass
+    st.header("Health & Lifestyle Data for Diabetes Prediction")
+    st.dataframe()
 
 with tab_patient:
     if not assets["patient"]["status"]:
@@ -313,8 +314,6 @@ with tab_doctor:
             L4, L5, L6 = st.columns(3)
             d_ins = L4.number_input("Insulin (mIU/L)", 0, 200, int(get_val("doctor", "insulin_level", 15)), help="Normal: < 25 mIU/L")
             d_chol = L5.number_input("Cholesterol (mg/dL)", 50, 600, int(get_val("doctor", "cholesterol_total", 190)), help="Desirable: < 200 mg/dL")
-            d_risk = L6.number_input("Risk Score (Calc)", 0, 100, int(get_val("doctor", "diabetes_risk_score", 0)))
-            
             st.markdown("### History & Demographics")
             
             h1, h2, h3 = st.columns(3)
