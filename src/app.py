@@ -206,7 +206,7 @@ with tab_patient:
         st.error(f"Error Loading Model:\n{assets['patient'].get('error')}")
     else:
         c_head, c_btn = st.columns([3, 1])
-        c_head.info("**Screening Mode:** Lifestyle data only.")
+        c_head.info("**Patient Mode:** Lifestyle data only.")
         if c_btn.button("Randomize Patient", key="rand_pat", width="stretch"):
             randomize("patient")
             st.rerun()
@@ -293,13 +293,13 @@ with tab_doctor:
         st.error(f"Error Loading Model:\n{assets['doctor'].get('error')}")
     else:
         d_head, d_btn = st.columns([3, 1])
-        d_head.info("**Clinical Mode:** Full dataset features + Lab results.")
+        d_head.info("**Clinic Mode:** Demographics + Vitals + Lab Results.")
         if d_btn.button("Randomize Case", key="rand_doc", use_container_width=True):
             randomize("doctor")
             st.rerun()
 
         with st.form("doctor_form"):
-            st.markdown("### Vitals & Labs")
+            st.markdown("### Vitals & Lab Results")
             d1, d2, d3, d4 = st.columns(4)
             d_age = d1.number_input("Age", 18, 100, int(get_val("doctor", "Age", 45)))
             d_bmi = d2.number_input("BMI (kg/m²)", 10.0, 60.0, float(get_val("doctor", "bmi", 28.0)), help="Healthy: 18.5-24.9\nHigh Risk: ≥ 25.0")
