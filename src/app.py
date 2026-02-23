@@ -394,4 +394,4 @@ with tab_doctor:
 
 from components.clinic_model_architecture import display_clinic_model_architecture 
 with tab_clinic_model_architecture:
-    display_clinic_model_architecture()
+    display_clinic_model_architecture(PROJECT_ROOT)
