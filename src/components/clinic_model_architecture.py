@@ -9,10 +9,16 @@ def display_clinic_model_architecture(PROJECT_ROOT: Path):
     v1_graph_name = "accuracyloss_graph_v1.0.1.png"
     v2_graph_name = "accuracyloss_graph_v1.0.2.png"
 
+    v0_architecture = "v100.png"
+    v1_architecture = "v101.png"
+    v2_architecture = "v102.png"
+
     st.markdown("## Clinic Side Model v1.0.0 Architecture")
+    st.image(Path(f"{assets_path.absolute()}{os.sep}{v0_architecture}"))
     st.image(Path(f"{assets_path.absolute()}{os.sep}{v0_graph_name}"))
     st.markdown("## Clinic Side Model v1.0.1 Architecture")
+    st.image(Path(f"{assets_path.absolute()}{os.sep}{v1_architecture}"))
     st.image(Path(f"{assets_path.absolute()}{os.sep}{v1_graph_name}"))
     st.markdown("## Clinic Side Model v1.0.2 Architecture")
+    st.image(Path(f"{assets_path.absolute()}{os.sep}{v2_architecture}"))
     st.image(Path(f"{assets_path.absolute()}{os.sep}{v2_graph_name}"))
-    pass
