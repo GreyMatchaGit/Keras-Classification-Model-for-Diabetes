@@ -195,7 +195,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-tab_dataset, tab_patient, tab_doctor = st.tabs(["Dataset Overview", "Patient Dashboard", "Clinic Dashboard"])
+tab_dataset, tab_patient, tab_doctor, tab_clinic_model_architecture = st.tabs(["Dataset Overview", "Patient Dashboard", "Clinic Dashboard", "Clinic Model Architecture"])
 
 from components.dataset_overview import display_dataset_overview
 with tab_dataset:
@@ -391,3 +391,7 @@ with tab_doctor:
 
             except Exception as e:
                 st.error(f"Error: {e}")
+
+from components.clinic_model_architecture import display_clinic_model_architecture 
+with tab_clinic_model_architecture:
+    display_clinic_model_architecture()
