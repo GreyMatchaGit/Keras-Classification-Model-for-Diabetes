@@ -37,11 +37,51 @@ def display_dataset_overview(DATA_PATH):
         st.markdown("### 🏥 Clinical Information")
         ci_1, ci_2, ci_3 = st.columns([1,1,1.21])
         with ci_1:
-            st.info("Age")
-            st.info("Ethnicity")
+            st.info("Hypertension")
+            st.info("BMI")
         with ci_2:
-            st.info("Gender")
-            st.info("Employment")
+            st.info("Triglycerides")
+            st.info("Insulin")
         with ci_3:
-            st.info("Education Level")
-            st.info("Income Category")
+            st.info("HbA1c")
+            st.info("PM Glucose")
+            
+    st.divider()
+    st.markdown("## Why We Chose This Dataset")
+    
+    why_1, why_2, why_3 = st.columns(3, gap="medium") 
+
+    with why_1:
+        with st.container(border=True):
+            st.markdown("### Real World Relevance")
+            st.warning("**Top 5** Leading Cause of Death (PH)")
+            st.markdown("""
+            Diabetes is a persistent metabolic condition affecting millions globally. It hits close to home for many of us—we've all heard the warnings:
+            
+            > *"Nak, ayaw palabi ug chocolate, magka-diabetes ka!"*
+            
+            This prevalence urged us to explore a solution that creates awareness and early detection.
+
+            """)
+    with why_2:
+        with st.container(border=True):
+            st.markdown("### Practicality & Quality")
+            st.success("**High Feature Richness**")
+            st.markdown("""
+            We selected this dataset because it already contains essential risk factors, allowing us to focus on Model Architecture:
+            
+            * **Demographics** (Age, Gender)
+            * **Behaviors** (Smoking, Diet)
+            * **Clinical** (BMI, BP)
+            
+            Its public availability ensures our research is reproducible and transparent.
+            """)
+    with why_3:
+        with st.container(border=True):
+            st.markdown("### Domain Interest")
+            st.info("**HealthTech Focus**")
+            st.markdown("""
+            Our group shares a distinct interest in HealthTech—the intersection of technology and medicine. 
+            
+            While we are Computer Science students, the medical field has always drawn our curiosity. This dataset served as the perfect foundation for our goal of solving human-centric health problems.
+            """)
