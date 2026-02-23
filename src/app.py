@@ -195,7 +195,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-tab_dataset, tab_patient, tab_patient_model_architecture, tab_doctor, tab_clinic_model_architecture = st.tabs(["Dataset Overview", "Patient Dashboard", "Patient Model Architecture", "Clinic Dashboard", "Clinic Model Architecture"])
+tab_dataset, tab_patient, tab_patient_model_architecture, tab_doctor, tab_clinic_model_architecture, = st.tabs(["Dataset Overview", "Patient Dashboard", "Patient Model Architecture", "Clinic Dashboard", "Clinic Model Architecture"])
 
 from components.dataset_overview import display_dataset_overview
 with tab_dataset:
@@ -287,10 +287,6 @@ with tab_patient:
                 
             except Exception as e:
                 st.error(f"Analysis Error: {e}")
-
-with tab_patient_model_architecture:
-    
-    pass
 
 with tab_doctor:
     if not assets["doctor"]["status"]:
@@ -399,3 +395,8 @@ with tab_doctor:
 from components.clinic_model_architecture import display_clinic_model_architecture 
 with tab_clinic_model_architecture:
     display_clinic_model_architecture(PROJECT_ROOT)
+    
+from components.patient_model_architecture import display_patient_model_architecture 
+with tab_patient_model_architecture:
+    display_patient_model_architecture(PROJECT_ROOT)
+    
